@@ -6,13 +6,15 @@ Includes MAF filtering for genetic variants.
 
 import pandas as pd
 
-def filter_by_maf(data, maf_threshold=0.01):
+def filter_by_maf(data, maf_threshold=0.005):
     """
     Filter variants by Minor Allele Frequency.
     
     Args:
         data: DataFrame with 'MAF' column
-        maf_threshold: variants with MAF below this threshold are removed
+        maf_threshold: variants with MAF below this threshold are removed.
+          Default threshold changed from 0.01 to 0.005 to retain more rare variants
+          while still filtering out sequencing errors.
         
     Returns:
         Filtered DataFrame
